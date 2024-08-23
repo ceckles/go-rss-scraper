@@ -1,4 +1,6 @@
 .vscode
+vendor/
+Flashpost-tests/
 
 #ENV
 .env
