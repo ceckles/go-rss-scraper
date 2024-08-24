@@ -24,3 +24,16 @@ Nav to cloned directory and run the following commands:
 #build and run
 > go build && ./go-rss-scraper
 ```
+
+# Goose
+```bash
+> cd sql/schema
+> goose postgres 'DB_URL' down
+> goose postgres 'DB_URL' up
+```
+
+# SQLC
+```bash
+> cd to project root
+> sqlc generate
+```
