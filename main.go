@@ -23,7 +23,8 @@ func main() {
 	//Get Environment Variables
 	portString := os.Getenv("PORT")
 	if portString == "" {
-		log.Fatal("PORT environment variable not set")
+		log.Println("PORT environment variable not set")
+		portString = "3000"
 	}
 
 	dbURLString := os.Getenv("DB_URL")
@@ -76,7 +77,7 @@ func main() {
 		Handler: router,
 	}
 
-	log.Printf("Server Starting o port %s", portString)
+	log.Printf("Server Starting on port %s", portString)
 	err = srv.ListenAndServe()
 	if err != nil {
 		log.Fatal(err)

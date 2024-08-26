@@ -38,3 +38,10 @@ Nav to cloned directory and run the following commands:
 > cd to project root
 > sqlc generate
 ```
+
+# Docker
+```bash
+docker build -t docker-rss-api-scrapper .    
+
+docker run --env-file .env -p 3000:3000 docker-rss-api-scrapper
+```
