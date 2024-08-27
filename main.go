@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/ceckles/go-rss-scraper/internal/database"
 	"github.com/go-chi/chi/v5"
@@ -41,9 +42,13 @@ func main() {
 		log.Fatal("Cant connect to database:", err)
 	}
 
+	db := database.New(conn)
 	apiCfg := apiConfig{
-		DB: database.New(conn),
+		DB: db,
 	}
+
+	//Start scrapping
+	go startScrapping(db, 10, time.Minute)
 
 	router := chi.NewRouter()
 
